@@ -4,7 +4,7 @@
 %
 % This function returns the equity accrued 
 % n - number of months
-% C - original cost of real estate
+% C0 - original cost of real estate
 % M - monthly payment
 % i_rate - interest rate
 % test values: C0=320000; M=2129; i_rate=0.00583; n=12;
