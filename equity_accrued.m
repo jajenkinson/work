@@ -14,7 +14,6 @@ function[E] = equity_accrued(n,C0,M,i_rate)
 C=zeros(1,n); I=C; P=C; E=C;
 
 for k=1:n
-    
     if(k==1) C(k)=C0;
         I(k)=i_rate*C(k);
         P(k)=M-I(k);
