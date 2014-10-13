@@ -13,19 +13,19 @@
 % [u_i(n)-u_{i-1}(n)]/i*dx.
 %
 % Example:
-% gridx[0,1]; 
-% gridt[0,10];
-% dt=0.01;
-% dx=dt;
-% u0x=sin(2*pi*x);
-% u0t=sin(10*pi*t);
+% gridx[0,1];  Solution interval in space
+% gridt[0,10]; Solution interval in time
+% dt=0.01;     time step
+% dx=dt;       space step
+% u0x=sin(2*pi*x);  boundary condition in space
+% u0t=sin(10*pi*t); boundary condition in time
 %
 function[u]=solveTransport(gridX,gridT,...
     dx,dt,u0x,u0t)
 
 % Create grid
-x=gridX(1):dx:gridX(2); %11 points
-t=gridT(1):dt:gridT(2); %101 points
+x=gridX(1):dx:gridX(2); 
+t=gridT(1):dt:gridT(2);
 dt=0.01;
 dx=dt;
 X=length(x);
