@@ -13,8 +13,8 @@
 % [u_i(n)-u_{i-1}(n)]/i*dx.
 %
 % Example:
-% gridx[0,1];  Solution interval in space
-% gridt[0,10]; Solution interval in time
+% gridX=[0,1];  Solution interval in space
+% gridT=[0,10]; Solution interval in time
 % dt=0.01;     time step
 % dx=dt;       space step
 % u0x=sin(2*pi*x);  boundary condition in space
