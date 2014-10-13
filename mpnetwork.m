@@ -6,10 +6,14 @@
 % with 100 neurons arranged linearly
 % in space with connections only
 % running from right to left.
+% number of neurons: nneurons 
+% number of states: states 
+% activity of the first neuron:
+% initial_condition
 %
-function(active,noisyactive,weight,noisyweight)=mpnetwork(nneurons,states,initial_condition)
-nneurons=100; % number of neurons
-states=100; % number of states
+function(active,noisyactive,weight,noisyweight)...
+=mpnetwork(nneurons,states,initial_condition)
+
 weight=zeros(states);
 for k=2:states
     weight(k,k-1)=1; % weight matrix j->i
