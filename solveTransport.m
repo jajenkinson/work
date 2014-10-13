@@ -26,8 +26,6 @@ function[u]=solveTransport(gridX,gridT,...
 % Create grid
 x=gridX(1):dx:gridX(2); 
 t=gridT(1):dt:gridT(2);
-dt=0.01;
-dx=dt;
 X=length(x);
 T=length(t);
 
