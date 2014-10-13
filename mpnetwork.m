@@ -7,35 +7,36 @@
 % in space with connections only
 % running from right to left.
 %
-close all; clear all; clc
-i=100; % number of neurons
-s=i; % number of states
-w=zeros(i);
-for k=2:i
-    w(k,k-1)=1; % weight matrix j->i
+function(active,noisyactive,weight,noisyweight)=mpnetwork(nneurons,states,initial_condition)
+nneurons=100; % number of neurons
+states=100; % number of states
+weight=zeros(states);
+for k=2:states
+    weight(k,k-1)=1; % weight matrix j->i
 end
-u=zeros(i); % activation matrix
-u(1,1)=1;
+noisyweight=weight;
+active=zeros(states); % activation matrix
+active(1,1)=initial_condition;
 Vth=0; % offset voltage
-for k=2:i
+for k=2:states
     for n=1:s-1
-        if(w(k,:)*u(:,n)-Vth>0)
-            u(k,n+1)=1;
+        if(weight(k,:)*active(:,n)-Vth>0)
+            active(k,n+1)=1;
         end
     end
 end
 
 % modeling weight matrix corrupted 
 % by noise
-un=zeros(i); % noisy activity matrix
-un(1,1)=1;
-for b=2:i
+noisyactive=zeros(states); % noisy activity matrix
+noisyactive(1,1)=initial_condition;
+for b=2:states
     if(rand(1)>0.85)
-        un(b,1)=1;
+        noisyactive(b,1)=1;
     end
     for y=1:s-1
-        if(w(b,:)*un(:,y)-Vth>0)
-            un(b,y+1)=1;
+        if(noisyweight(b,:)*noisyactive(:,y)-Vth>0)
+            noisyactive(b,y+1)=1;
         end
     end
 end
